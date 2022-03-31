@@ -1,0 +1,215 @@
+:root {
+  --desktop-font-size: 16px;
+  --mobile-font-size: 22px;
+}
+
+svg {
+  cursor: pointer;
+}
+
+*{
+  margin:0;
+  padding0;
+}
+
+button {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #444;
+  cursor: pointer;
+  display: block;
+  font-size: 22px; /* fallback */
+  font-size: var(--mobile-font-size);
+  font-weight: 500;
+  margin: 3px 0 0 0;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+button#signin {
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+h1 {
+  border-bottom: 1px solid #ccc;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  padding: 0 0 5px 0;
+}
+
+input {
+  border: 1px solid #ccc;
+  font-size: 22px; /* fallback */
+  font-size: var(--mobile-font-size);
+  padding: 15px;
+  width: 90%; /* fallback */
+  width: calc(100% - 30px); /* full width minus padding */
+}
+
+
+input[type=tel]:not(:focus):invalid,
+input[type=password]:not(:focus):invalid {
+  color: red;
+  outline-color: red;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+  font-size: var(--mobile-font-size);
+  font-weight: 500;
+  margin: 0 0 3px 0;
+}
+
+form section {
+  margin: 0 0 20px 0;
+  position: relative; /* for password toggle positioning */
+}
+
+@media (min-width: 450px) {
+  #login {
+    margin: 20px 50px;
+  }
+  button {
+    font-size: 14px; /* fallback */
+    font-size: var(--desktop-font-size);
+  }
+  button#signin {
+    margin-top: 40px;
+    width: 16%;
+  }
+  h1 {
+    font-size: 28px;
+    font-size: calc(2 * var(--desktop-font-size));
+    font-weight: 500;
+    margin: 0 0 80px 0;
+  }
+  input {
+    font-size: 14px; /* fallback */
+    font-size: var(--desktop-font-size);
+  }
+  label {
+    font-size: 14px; /* fallback */
+    font-size: var(--desktop-font-size);
+  }
+}
+
+@media (min-width: 800px) {
+  #login {
+    margin: 50px;
+  }
+}
+
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.flex-opposite {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-button {
+  margin-top: 30px;
+  cursor: pointer;
+  gap: 5px;
+}
+
+
+.toast-group {
+  position: fixed;
+  z-index: 1;
+
+  inset-block-end: 0;
+  inset-inline: 0;
+
+  -webkit-padding-after: 5vh;
+  padding-block-end:5vh;
+
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+
+  gap: 1vh;
+  pointer-events: none;
+}
+
+
+.toast {
+  --_duration: 3s;
+  --_bg-lightness: 85%;
+  --_travel-distance: 5vh;
+
+  color: #000;
+  background: hsl(0 0% var(--_bg-lightness) / 90%);
+  max-inline-size: min(25ch, 90vw);
+
+
+  padding-block: .5ch;
+  padding-inline: 1ch;
+
+  border-radius: 3px;
+  font-size: 1rem;
+
+  will-change: transform;
+  -webkit-animation: fade-in .3s ease, slide-in .3s ease, fade-out .3s ease var(--_duration);
+  animation: fade-in .3s ease, slide-in .3s ease, fade-out .3s ease var(--_duration)
+}
+
+
+
+
+@-webkit-keyframes fade-in {
+  0% {
+      opacity: 0
+  }
+}
+
+@keyframes fade-in {
+  0% {
+      opacity: 0
+  }
+}
+
+@-webkit-keyframes fade-out {
+  to {
+      opacity: 0
+  }
+}
+
+@keyframes fade-out {
+  to {
+      opacity: 0
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+      transform: translateY(var(--_travel-distance, 10px))
+  }
+}
+
+@keyframes slide-in {
+  0% {
+      transform: translateY(var(--_travel-distance, 10px))
+  }
+}
